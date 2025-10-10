@@ -9,6 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
+import MovieList from "../movieList";
 
 
 
@@ -61,9 +62,16 @@ const MovieDetails = ({movie}) => {
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
       <Paper component="ul" sx ={{...root}}>
+
       <li>
       <Chip label="Production Countries" sx ={{...chip}} color="primary"/>
       </li>
+              {movie.production_countries.map((g) => (
+          <li key={g.name}>
+            <Chip label = {g.name} sx={{...chip}} />
+          </li>
+        ))}
+
       </Paper>
       <Fab
         color="secondary"
