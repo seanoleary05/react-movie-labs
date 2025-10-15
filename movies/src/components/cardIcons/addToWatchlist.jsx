@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
+import IconButton from "@mui/material/IconButton";
 
 
 const AddToWatchlistIcon = ({ movie }) => {
@@ -8,13 +9,13 @@ const AddToWatchlistIcon = ({ movie }) => {
 
   const handleAddToWatchlist = (e) => {
     e.preventDefault();
-    context.addToPlaylist(movie);
+    context.addToWatchlist(movie);
   };
 
   return (
-    <PlaylistAddIcon aria-label="add to watchlist" onClick={handleAddToWatchlist}>
+    <IconButton aria-label="add to watchlist" onClick={handleAddToWatchlist}>
       <PlaylistAddIcon color="primary" fontSize="large" />
-    </PlaylistAddIcon>
+    </IconButton>
   );
 };
 
