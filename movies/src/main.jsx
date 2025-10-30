@@ -14,6 +14,10 @@ import UpcomingMoviesPage from './pages/upcomingMoviesPage';
 import TrendingMoviesPage from './pages/trendingMoviesPage';
 import TopRatedMoviesPage from './pages/topRatedMoviesPage';
 import PopularMoviesPage from './pages/popularMoviesPage';
+import Alert from '@mui/material/Alert';
+import CloseIcon from '@mui/icons-material/Close';
+import { createTheme } from "@mui/material/styles";
+import { orange, amber} from "@mui/material/colors";  
 
 
 const queryClient = new QueryClient({
@@ -26,6 +30,17 @@ const queryClient = new QueryClient({
   },
 });
 
+  const Theme = createTheme({
+    palette: {
+      primary : {
+        main: amber[600],
+      },
+      secondary: {
+        main: orange[500],
+      }
+    }
+  });
+
 
 
 
@@ -34,6 +49,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <SiteHeader/>
+      <Alert severity="success"><CloseIcon></CloseIcon></Alert>
       <MoviesContextProvider>
       <Routes>
         <Route path="/movies/favorites" element={<FavoriteMoviesPage />} />

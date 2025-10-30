@@ -15,6 +15,7 @@ import { Link } from "react-router";
 import Avatar from '@mui/material/Avatar';
 import React, { useContext  } from "react";
 import { MoviesContext } from "../../contexts/moviesContext";
+import Alert from '@mui/material/Alert';
 
 
 
@@ -42,6 +43,7 @@ export default function MovieCard({movie, action}) {
             <Avatar sx={{ backgroundColor: 'red' }}>
               <FavoriteIcon />
             </Avatar>
+            
           ) : null
         }
         title={

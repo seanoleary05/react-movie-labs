@@ -11,6 +11,8 @@ import { useNavigate } from "react-router";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { createTheme } from "@mui/material/styles";
+import { orange, amber} from "@mui/material/colors";
 
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
@@ -18,7 +20,18 @@ const SiteHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const theme = useTheme();
+  const theme = createTheme({
+      palette: {
+        primary : {
+          main: amber[600],
+          background: amber[600]
+        },
+        secondary: {
+          main: orange[500],
+          color: orange[500]
+        }
+      }
+    });
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   
   const navigate = useNavigate();
@@ -43,7 +56,7 @@ const SiteHeader = () => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed" sx={{color: theme.palette.primary}}>
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
             TMDB Client
