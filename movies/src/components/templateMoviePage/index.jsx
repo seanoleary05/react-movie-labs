@@ -6,6 +6,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getMovieImages } from "../../api/tmdb-api";
 import { useQuery } from "@tanstack/react-query";
 import Spinner from '../spinner';
+import { BorderColor } from "@mui/icons-material";
 
 
 const TemplateMoviePage = ({ movie, children }) => {
@@ -35,6 +36,7 @@ const TemplateMoviePage = ({ movie, children }) => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-around",
+            fontWeight: 'light',
           }}>
             <ImageList
                 sx={{
